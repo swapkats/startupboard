@@ -29,11 +29,6 @@ module.exports = function(app, passport, db) {
         level: 9
     }));
 
-    // Only use logger for development environment
-    if (process.env.NODE_ENV === 'development') {
-        app.use(express.logger('dev'));
-    }
-
     // assign the template engine to .html files
     app.engine('html', consolidate[config.templateEngine]);
 
@@ -80,6 +75,11 @@ module.exports = function(app, passport, db) {
         // Setting the fav icon and static folder
         app.use(express.favicon());
         app.use(express.static(config.root + '/public'));
+
+        // Only use logger for development environment
+        if (process.env.NODE_ENV === 'development') {
+            app.use(express.logger('dev'));
+        }
 
         // Assume "not found" in the error msgs is a 404. this is somewhat
         // silly, but valid, you can do whatever you like, set properties,
