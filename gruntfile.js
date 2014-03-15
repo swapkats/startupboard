@@ -23,6 +23,37 @@ module.exports = function(grunt) {
                 options: {
                     livereload: true
                 }
+            },
+            slim: {
+                files: ['public/slim/**'],
+                options: {
+                    livereload: true
+                },
+                tasks:['slim']
+            },
+            sass: {
+                files: ['public/sass/**'],
+                options: {
+                    livereload: true
+                },
+                tasks:['compass']
+            }
+        },
+        compass: {
+            dist: {
+                options: {
+                    outputStyle: 'compressed',
+                    sassDir: 'public/sass',
+                    cssDir: 'public/css'
+                }
+            }
+        },
+        slim: {
+            dist: {
+                files: {
+                    'public/views/index.html': 'public/slim/index.slim',
+                    'public/views/header.html': 'public/slim/header.slim',
+                }
             }
         },
         jshint: {
@@ -82,6 +113,8 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-nodemon');
     grunt.loadNpmTasks('grunt-concurrent');
     grunt.loadNpmTasks('grunt-env');
+    grunt.loadNpmTasks('grunt-slim');
+    grunt.loadNpmTasks('grunt-contrib-compass');
 
     //Making grunt default to force in order not to break the project.
     grunt.option('force', true);
