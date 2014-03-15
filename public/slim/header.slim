@@ -1,20 +1,23 @@
 div data-ng-controller="HeaderController"
-    ul.navbar-nav.nav
-        li
-            a.navbar-brand href="/" MEAN - A Modern Stack
-        li data-ng-repeat="item in menu" data-ng-show="global.user" ui-route="/{{item.link}}" ng-class="{active: $uiRoute}"
-            a href="#!/{{item.link}}" {{item.title}}
-    ul.navbar-nav.nav.pull-right data-ng-hide="global.authenticated"
-        li 
-            a href="signup" Signup
-        li.divider-vertical
-        li
-            a href="signin" Signin
-    ul.navbar-nav.nav.pull-right data-ng-show="global.authenticated"
-        li.dropdown
-            a.dropdown-toggle href="#" data-toggle="dropdown"
-				| {{global.user.name}} 
-                b.caret
-            ul.dropdown-menu
-                li
-                    a href="/signout" Signout
+  ul.navbar-nav.nav
+    li
+      a.navbar-brand href="/"
+        h1.logo 
+          | Startup
+          small Board
+    li data-ng-repeat="item in menu" data-ng-show="global.user" ui-route="/{{item.link}}" ng-class="{active: $uiRoute}"
+        a href="#!/{{item.link}}" {{item.title}}
+  ul.navbar-nav.nav.pull-right data-ng-hide="global.authenticated"
+      li 
+          a href="signup" Signup
+      li.divider-vertical
+      li
+          a href="signin" Signin
+  ul.navbar-nav.nav.pull-right data-ng-show="global.authenticated"
+      li.dropdown
+          a.dropdown-toggle href="#" data-toggle="dropdown"
+			| {{global.user.name}} 
+              b.caret
+          ul.dropdown-menu
+              li
+                  a href="/signout" Signout
