@@ -5,6 +5,19 @@ $lightGray: #fafafa;
 $linkBlue: #428bca;
 $lightBorder: rgba(70,70,70,0.2);
 
+/* Board Colors */
+
+$green: rgb(46, 204, 113);
+$yellow: rgb(241, 196, 15);
+$darkgreen: rgb(39, 174, 96);
+$voilet: rgb(155, 89, 182);
+$blue: rgb(52, 152, 219);
+$orange: rgb(255, 109, 58);
+
+/* Board Array */
+
+$boardColors: $green, $yellow, $orange, $darkgreen, $voilet, $blue;
+
 /* Font Sizes */
 
 $h1: 1.6em;

@@ -30,7 +30,7 @@ angular.module('startupBoard').config(['$stateProvider', '$urlRouterProvider',
     }).state('signup', {
         url: '/signout',
         templateUrl: 'views/articles/dasd.html'
-    });;
+    });
 }
 ]);
 

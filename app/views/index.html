@@ -1,6 +1,6 @@
 {% extends 'layouts/default.html' %}
 {% block content %}
-    <section ui-view />
+    <main ui-view ng-controller="IndexController"></main>
     <script type="text/javascript">
         window.user = {{user|safe}};
     </script>

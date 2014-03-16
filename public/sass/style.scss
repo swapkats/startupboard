@@ -6,3 +6,59 @@ body {
 	font-family: 'Lato','Helvetica',arial !important;
 	font-size: 16px;
 }
+
+ul.boards {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+
+	li {
+    margin-bottom: 30px;
+
+		a {
+			display: inline-block;
+      width: 100%;
+      height: 300px;
+      padding: 20px 24px;
+      border: 1px solid $lightBorder;
+      border-top-width: 3px;
+      text-decoration: none;
+      color: #666;
+      transition: background-color .3s ease, border-color .3s ease;
+
+      h3 {
+        margin: 0;
+        padding: 20px 0;
+        height: 213px;
+      }
+
+      span.date,
+      span.location {
+        text-transform: uppercase;
+        font-weight: bolder;
+        font-size: 12px;
+        color: #888;
+      }
+		}
+
+    &:hover a,
+    &:hover a span.date,
+    &:hover a span.location {
+      color: #fff;
+    }
+
+    @for $i from 1 through 6 {
+
+      &:nth-child(6n+#{$i}) {
+
+      a { border-top-color: #{nth($boardColors, $i)}; }
+
+        &:hover a { 
+          border-color: #{nth($boardColors, $i)};
+          background-color: #{nth($boardColors, $i)};
+        }
+      }
+
+    }
+	}
+}
