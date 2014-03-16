@@ -9,11 +9,18 @@ header {
 	h1.logo {
 		text-transform: uppercase;
 		margin: 0;
-    font-size: $h3;
+    	font-size: $h3;
 
 		small {
 			font-size: 100%;
 			color: $radiantOrchid;
+		}
+	}
+
+	ul.navbar-right {
+		a { 
+			font-size: 12px; 
+			text-transform: uppercase;
 		}
 	}
 

@@ -88,13 +88,28 @@ exports.show = function(req, res) {
  * List of Articles
  */
 exports.all = function(req, res) {
-    Article.find().sort('-created').populate('user', 'name username').exec(function(err, articles) {
+    Article.find().sort('-created').populate('user', 'name username').exec(function(err, boards) {
         if (err) {
             res.render('error', {
                 status: 500
             });
         } else {
-            res.jsonp(articles);
+            res.render('index',{
+                'boards':boards,
+                'user': req.user ? JSON.stringify(req.user) : 'null'
+            });
+        }
+    });
+};
+
+exports.jsonAll = function(req, res) {
+    Article.find().sort('-created').populate('user', 'name username').exec(function(err, boards) {
+        if (err) {
+            res.render('error', {
+                status: 500
+            });
+        } else {
+            res.jsonp(boards);
         }
     });
 };

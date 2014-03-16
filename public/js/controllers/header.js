@@ -4,11 +4,8 @@ angular.module('startupBoard').controller('HeaderController', ['$scope', 'Global
     $scope.global = Global;
 
     $scope.menu = [{
-        'title': 'Articles',
-        'link': 'articles'
-    }, {
-        'title': 'Create New Article',
-        'link': 'articles/create'
+        'title': 'Post Job',
+        'link': 'board/new'
     }];
     
     $scope.isCollapsed = false;

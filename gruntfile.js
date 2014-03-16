@@ -53,6 +53,10 @@ module.exports = function(grunt) {
                 files: {
                     'public/views/index.html': 'public/slim/index.slim',
                     'public/views/header.html': 'public/slim/header.slim',
+                    'public/views/boards/create.html': 'public/slim/boards/create.slim',
+                    'public/views/boards/edit.html': 'public/slim/boards/edit.slim',
+                    'public/views/boards/list.html': 'public/slim/boards/list.slim',
+                    'public/views/boards/view.html': 'public/slim/boards/view.slim',
                 }
             }
         },

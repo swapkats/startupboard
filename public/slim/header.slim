@@ -15,6 +15,8 @@
         li 
           a href="signup" Login/Signup
       ul.nav.navbar-nav.navbar-right ng-show="global.authenticated"
+        li data-ng-repeat="item in menu" data-ng-show="global.user" ui-route="/{{item.link}}" ng-class="{active: $uiRoute}"
+          a href="#!/{{item.link}}" {{item.title}}
         li.dropdown
           a.dropdown-toggle href="#" data-toggle="dropdown"
             | {{global.user.name}} 

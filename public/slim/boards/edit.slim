@@ -1,0 +1,13 @@
+section ng-controller="BoardController" ng-init="findOne()" 
+  form.form-horizontal.col-md-6 ng-submit="update()" role="form" 
+    .form-group
+      label.col-md-2.control-label for="title"  Title
+      .col-md-10
+        input#title.form-control ng-model="article.title" placeholder="Title" required="" type="text" 
+    .form-group
+      label.col-md-2.control-label for="content"  Content
+      .col-md-10
+        textarea#content.form-control cols="30" ng-model="article.content" placeholder="Content" required="" rows="10" 
+    .form-group
+      .col-md-offset-2.col-md-10
+        button.btn.btn-default type="submit"  Submit

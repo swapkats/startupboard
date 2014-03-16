@@ -1,7 +1,7 @@
 section.boards.container ng-controller="BoardController" ng-init="find()"
   ul.boards.row
     li.col-md-3.col-sm-6.col-xs-12 ng-repeat="article in articles"
-      a ng-href="#!/board/{{article._id}}"
+      a ng-href="#!/articles/{{article._id}}"
         span.date 
           | {{article.created | date:'medium'}}
         h3 

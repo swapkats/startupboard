@@ -1,0 +1,14 @@
+section ng-controller="BoardController" ng-init="findOne()" 
+  span
+    | {{article.created | date:'medium'}}
+  span  
+    | {article.user.name} 
+  h2  
+    | {{article.title}} 
+  div ng-show="{{global.user._id == article.user._id}}"
+    a.btn ng-href="/#!/articles/{{article._id}}/edit" 
+      i.glyphicon.glyphicon-edit
+    a.btn ng-click="remove();" 
+      i.glyphicon.glyphicon-trash
+  div
+    | {{article.content}}

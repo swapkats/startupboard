@@ -9,27 +9,24 @@ angular.module('startupBoard').config(['$stateProvider', '$urlRouterProvider',
     // states for my app
     $stateProvider
       .state('all articles', {
-        url: '/articles',
-        templateUrl: 'views/articles/list.html'
+        url: '/boards',
+        templateUrl: 'views/boards/list.html'
     })
       .state('create article', {
-        url: '/articles/create',
-        templateUrl: 'views/articles/create.html'
+        url: '/board/new',
+        templateUrl: 'views/boards/edit.html'
     })
       .state('edit article', {
-        url: '/articles/:articleId/edit',
-        templateUrl: 'views/articles/edit.html'
+        url: '/board/:articleId/edit',
+        templateUrl: 'views/boards/edit.html'
     })
       .state('article by id', {
-        url: '/articles/:articleId',
-        templateUrl: 'views/articles/view.html'
+        url: '/board/:articleId',
+        templateUrl: 'views/boards/view.html'
     })
       .state('home', {
         url: '/',
         templateUrl: 'views/index.html'
-    }).state('signup', {
-        url: '/signout',
-        templateUrl: 'views/articles/dasd.html'
     });
 }
 ]);
@@ -37,7 +34,7 @@ angular.module('startupBoard').config(['$stateProvider', '$urlRouterProvider',
 //Setting HTML5 Location Mode
 angular.module('startupBoard').config(['$locationProvider',
   function($locationProvider) {
-    $locationProvider.html5Mode(true);
-    //$locationProvider.hashPrefix('!');
+    //$locationProvider.html5Mode(true);
+    $locationProvider.hashPrefix('!');
 }
 ]);
