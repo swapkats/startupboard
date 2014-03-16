@@ -2,13 +2,14 @@
 
 header {
 
-	.navbar-brand {
-		height: auto;
+	.navbar-default .navbar-brand {
+    color: $linkBlue;
 	}
 	
 	h1.logo {
 		text-transform: uppercase;
 		margin: 0;
+    font-size: $h3;
 
 		small {
 			font-size: 100%;

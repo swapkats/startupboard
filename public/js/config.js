@@ -27,13 +27,17 @@ angular.module('startupBoard').config(['$stateProvider', '$urlRouterProvider',
       .state('home', {
         url: '/',
         templateUrl: 'views/index.html'
-    });
+    }).state('signup', {
+        url: '/signout',
+        templateUrl: 'views/articles/dasd.html'
+    });;
 }
 ]);
 
 //Setting HTML5 Location Mode
 angular.module('startupBoard').config(['$locationProvider',
   function($locationProvider) {
-    $locationProvider.hashPrefix('!');
+    $locationProvider.html5Mode(true);
+    //$locationProvider.hashPrefix('!');
 }
 ]);
