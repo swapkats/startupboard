@@ -25,6 +25,11 @@ var ArticleSchema = new Schema({
         default: '',
         trim: true
     },
+    city: {
+        type: String,
+        default: '',
+        trim: true
+    },
     user: {
         type: Schema.ObjectId,
         ref: 'User'
@@ -38,6 +43,10 @@ ArticleSchema.path('title').validate(function(title) {
     return title.length;
 }, 'Title cannot be blank');
 
+ArticleSchema.path('city').validate(function(city) {
+    return city.length;
+}, 'City cannot be blank');
+
 /**
  * Statics
  */
@@ -47,4 +56,4 @@ ArticleSchema.statics.load = function(id, cb) {
     }).populate('user', 'name username').exec(cb);
 };
 
-mongoose.model('Article', ArticleSchema);
+mongoose.model('Board', ArticleSchema);

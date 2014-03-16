@@ -6,7 +6,8 @@ angular.module('startupBoard').controller('BoardController', ['$scope', '$stateP
     $scope.create = function() {
         var article = new Articles({
             title: this.title,
-            content: this.content
+            content: this.content,
+            city: this.city
         });
         article.$save(function(response) {
             $location.path('articles/' + response._id);
@@ -14,6 +15,7 @@ angular.module('startupBoard').controller('BoardController', ['$scope', '$stateP
 
         this.title = '';
         this.content = '';
+        this.city = '';
     };
 
     $scope.remove = function(article) {
