@@ -94,22 +94,10 @@ exports.all = function(req, res) {
                 status: 500
             });
         } else {
-            res.render('index',{
-                'boards':boards,
-                'user': req.user ? JSON.stringify(req.user) : 'null'
+            res.jsonp({
+                'user': req.user ? JSON.stringify(req.user) : 'null',
+                'boards':boards
             });
-        }
-    });
-};
-
-exports.jsonAll = function(req, res) {
-    Article.find().sort('-created').populate('user', 'name username').exec(function(err, boards) {
-        if (err) {
-            res.render('error', {
-                status: 500
-            });
-        } else {
-            res.jsonp(boards);
         }
     });
 };

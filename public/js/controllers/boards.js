@@ -46,7 +46,7 @@ angular.module('startupBoard').controller('BoardController', ['$scope', '$stateP
 
     $scope.find = function() {
         Articles.query(function(articles) {
-            $scope.articles = articles;
+            $scope.articles = articles.boards;
         });
     };
 
