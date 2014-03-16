@@ -6,8 +6,18 @@ module.exports = function(grunt) {
         pkg: grunt.file.readJSON('package.json'),
         watch: {
             js: {
-                files: ['gruntfile.js', 'server.js', 'app/**/*.js', 'public/js/**', 'test/**/*.js'],
-                tasks: ['jshint'],
+                files: ['gruntfile.js', 
+                        'server.js', 
+                        'app/**/*.js', 
+                        'public/js/controllers/*.js', 
+                        'public/js/services/*.js', 
+                        'public/js/app.js', 
+                        'public/js/config.js', 
+                        'public/js/directives.js', 
+                        'public/js/filters.js', 
+                        'public/js/init.js', 
+                        'test/**/*.js'],
+                tasks: ['concat','uglify'],
                 options: {
                     livereload: true
                 }
@@ -37,6 +47,31 @@ module.exports = function(grunt) {
                     livereload: true
                 },
                 tasks:['compass']
+            }
+        },
+        concat: {
+            options: {
+              separator: ';',
+            },
+            dist: {
+                src: ['public/js/app.js',
+                    'public/js/config.js',
+                    'public/js/directives.js',
+                    'public/js/filters.js',
+                    'public/js/controllers/*.js',
+                    'public/js/services/*.js',
+                    'public/js/init.js'],
+              dest: 'public/js/script.js',
+            }
+        },
+        uglify: {
+            options: {
+              mangle: true
+            },
+            my_target: {
+              files: {
+                'public/js/app.min.js': ['public/js/script.js']
+              }
             }
         },
         compass: {
@@ -82,6 +117,20 @@ module.exports = function(grunt) {
                     },
                     cwd: __dirname
                 }
+            },
+            prod: {
+                script: 'server.js',
+                options: {
+                    args: [],
+                    ignore: ['public/**'],
+                    ext: 'js',
+                    nodeArgs: ['--debug'],
+                    delayTime: 1,
+                    env: {
+                        PORT: 3000
+                    },
+                    cwd: __dirname
+                }
             }
         },
         concurrent: {
@@ -111,6 +160,8 @@ module.exports = function(grunt) {
 
     //Load NPM tasks
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-mocha-test');
     grunt.loadNpmTasks('grunt-karma');
@@ -125,6 +176,7 @@ module.exports = function(grunt) {
 
     //Default task(s).
     grunt.registerTask('default', ['jshint', 'concurrent']);
+    grunt.registerTask('server', ['nodemon:prod']);
 
     //Test task.
     grunt.registerTask('test', ['env:test', 'mochaTest', 'karma:unit']);
