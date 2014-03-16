@@ -96,7 +96,7 @@ exports.all = function(req, res) {
         } else {
             res.jsonp({
                 'user': req.user ? JSON.stringify(req.user) : 'null',
-                'boards':boards
+                'boards': boards
             });
         }
     });

@@ -14,7 +14,7 @@ angular.module('startupBoard').config(['$stateProvider', '$urlRouterProvider',
     })
       .state('create article', {
         url: '/board/new',
-        templateUrl: 'views/boards/edit.html'
+        templateUrl: 'views/boards/create.html'
     })
       .state('edit article', {
         url: '/board/:articleId/edit',
