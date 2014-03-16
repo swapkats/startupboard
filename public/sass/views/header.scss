@@ -1,0 +1,19 @@
+@import "partials/base";
+
+header {
+
+	.navbar-brand {
+		height: auto;
+	}
+	
+	h1.logo {
+		text-transform: uppercase;
+		margin: 0;
+
+		small {
+			font-size: 100%;
+			color: $radiantOrchid;
+		}
+	}
+
+}

@@ -6,10 +6,13 @@
     <title>{{title}}</title>
     <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
     <meta name="keywords" content="startup,jobs,india,best">
-    <meta name="description" content="{{title} - Best site for startup jobs in india.">
+    <meta name="description" content="{{title}} - Best site for startup jobs in india.">
 
     <link href="/img/icons/favicon.ico" rel="shortcut icon" type="image/x-icon">
-    <link href='http://fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
+
+    {% if (process.env.NODE_ENV == 'production') %}
+        <link href='http://fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
+    {% endif %}
 
     <!--<meta property="fb:app_id" content="APP_ID">
     <meta property="og:title" content="{{title}}">
