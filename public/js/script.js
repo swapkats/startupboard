@@ -103,7 +103,7 @@ angular.module('startupBoard').controller('BoardController', ['$scope', '$stateP
     };
 }]);;'use strict';
 
-angular.module('startupBoard').controller('HeaderController', ['$scope', 'Global', function ($scope, Global) {
+angular.module('startupBoard').controller('HeaderController', ['$scope', 'Global', 'Ui', function ($scope, Global, Ui) {
     $scope.global = Global;
 
     $scope.menu = [{
@@ -111,11 +111,23 @@ angular.module('startupBoard').controller('HeaderController', ['$scope', 'Global
         'link': 'board/new'
     }];
     
+    $scope.ui = Ui;
+    
     $scope.isCollapsed = false;
 }]);;'use strict';
 
-angular.module('startupBoard').controller('IndexController', ['$scope', 'Global', function ($scope, Global) {
+angular.module('startupBoard').controller('IndexController', ['$scope', 'Global', 'Ui', '$document', function ($scope, Global, Ui, $document) {
     $scope.global = Global;
+    $scope.ui = Ui;
+
+    $document.on('keydown',function(e){
+    	e.stopPropagation();
+    	if(e.which == 27){
+    		$scope.ui.showLoginOverlay = false;
+    		if(!$scope.$$phase)
+    			$scope.$digest();
+    	}
+    });
 }]);;'use strict';
 
 //Articles service used for articles REST endpoint
@@ -133,6 +145,15 @@ angular.module('startupBoard').factory('Global', [
         };
 
         return _this._data;
+    }
+]);
+;'use strict';
+
+angular.module('startupBoard').service('Ui', [
+    function() {
+        var exports = {};
+        //exports.showLoginOverlay = true;
+        return exports;
     }
 ]);
 ;'use strict';

@@ -6,28 +6,28 @@ module.exports = {
         name: 'Startup Board'
     },
     facebook: {
-        clientID: 'APP_ID',
-        clientSecret: 'APP_SECRET',
+        clientID: '255103358026116',
+        clientSecret: 'c7bbf4d6a2c68b8af0d74e3d1aa1d677',
         callbackURL: 'http://localhost:3000/auth/facebook/callback'
     },
     twitter: {
-        clientID: 'CONSUMER_KEY',
-        clientSecret: 'CONSUMER_SECRET',
+        clientID: 'oq20JY7VifgmYX523iZFA',
+        clientSecret: 'OeWngqKNAwVNZBt8Xq5GECEAaiNp6o24jxxtcZo0',
         callbackURL: 'http://localhost:3000/auth/twitter/callback'
     },
     github: {
-        clientID: 'APP_ID',
-        clientSecret: 'APP_SECRET',
+        clientID: '97c5b9f2c5dd7ff89104',
+        clientSecret: '8b26456294a1a74697718be6ba483e18cb830fa4',
         callbackURL: 'http://localhost:3000/auth/github/callback'
     },
     google: {
-        clientID: 'APP_ID',
-        clientSecret: 'APP_SECRET',
+        clientID: '897907170490.apps.googleusercontent.com',
+        clientSecret: 'SyiQMUM9uMoQVokO8cDpgFMN',
         callbackURL: 'http://localhost:3000/auth/google/callback'
     },
     linkedin: {
-        clientID: 'API_KEY',
-        clientSecret: 'SECRET_KEY',
+        clientID: '75besreex86nrt',
+        clientSecret: 'BqMNEC845K5ivSBV',
         callbackURL: 'http://localhost:3000/auth/linkedin/callback'
     }
 };

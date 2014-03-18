@@ -3,14 +3,24 @@
 
 body {
 	font-family: 'Lato','Helvetica',arial !important;
-	font-size: 1em;
+	font-size: 16px;
   background-color: $bodyBackground;
+}
+
+main {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding-top: 50px;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
 }
 
 ul.boards {
 	list-style: none;
 	padding: 0;
-	margin: 0;
+	margin: 20px 0 0 0;
 
 	li {
     margin-bottom: 30px;
@@ -61,4 +71,79 @@ ul.boards {
 
     }
 	}
+}
+
+section.fixed-overlay {
+  position: fixed;
+  top: 100%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #fafafa;
+  -webkit-transition: .3s top ease;
+  -moz-transition: .3s top ease;
+  -ms-transition: .3s top ease;
+  -o-transition: .3s top ease;
+  transition: .3s top ease;
+
+  &.active {
+    top: 51px;
+  }
+}
+
+section.login-overlay,
+.social-login-btns,
+.signin {
+
+  .overlay-container {
+    padding-top: 50px;
+    height: 100%;
+    overflow: auto;
+  }
+
+  h6 { 
+    font-size: $h2; 
+    margin-bottom: 20px;
+  }
+
+  .alert {
+    margin-bottom: 0;
+  }
+}
+
+.social-login-btns {
+  a {
+    display: inline-block;
+    width: 90px;
+    height: 90px;
+    color: #fff;
+    text-align: center;
+    font-size: 32px;
+    line-height: 90px;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    border-radius: 2px;
+    -webkit-transition: .3s background-color ease;
+    -moz-transition: .3s background-color ease;
+    -ms-transition: .3s background-color ease;
+    -o-transition: .3s background-color ease;
+    transition: .3s background-color ease;
+  }
+  .facebook { background-color: $facebook; }
+  .facebook:hover { background-color: darken($facebook,5%); }
+  .twitter { background-color: $twitter; }
+  .twitter:hover { background-color: darken($twitter,5%); }
+  .gplus { background-color: $gplus; }
+  .gplus:hover { background-color: darken($gplus,5%); }
+  .linkedin { background-color: $linkedin; }
+  .linkedin:hover { background-color: darken($linkedin,5%); }
+  .github { background-color: $github; }
+  .github:hover { background-color: darken($github,5%); }
+}
+
+.alert-error {
+  margin-bottom: 0;
+  color: #fff;
+  background-color: $orange;
+  padding: 10px;
 }

@@ -8,3 +8,63 @@ section.boards.container ng-controller="BoardController" ng-init="find()"
           | {{article.title}} 
         span.location 
           | {{article.city}}
+section.overlay.fixed-overlay.login-overlay ng-class="ui.showLoginOverlay && 'active' || 'inactive'"
+  .overlay-container.container
+    .col-md-6.social-login-btns
+      h6 Login with
+      a.facebook href="/auth/facebook"
+        i.fa.fa-facebook
+      a.twitter href="/auth/twitter"
+        i.fa.fa-twitter
+      a.github href="/auth/github"
+        i.fa.fa-github
+      a.gplus href="/auth/google"
+        i.fa.fa-google-plus
+      a.linkedin href="/auth/linkedin"
+        i.fa.fa-linkedin
+    .col-md-6
+      .fade.in.alert.alert-error ng-if="global.loginMessage"
+        button class="close" data-dismiss="alert" 
+         | &times;
+        .strong
+          | {{ Global.loginMessage }}
+      h6.col-md-offset-4.col-md-8 Login with Email
+      form.signin.form-horizontal action="/users/session" method="post"
+        .form-group
+          label class="col-md-4 control-label" for="email" 
+            | Email
+          .col-md-8
+            input#email.form-control type="text" name="email" placeholder="Email"
+        .form-group
+          label class="col-md-4 control-label" for="password"
+            | Password
+          .col-md-8
+            input#password.form-control type="password" name="password" placeholder="Password"
+        .form-group
+          .col-md-offset-4.col-md-8
+            button.btn.btn-primary type="submit" 
+              | Sign in
+            | &nbsp; or &nbsp; 
+            a.show-signup href="javascript:;" ng-click="ui.showSignup = !ui.showSignup" Sign up
+      form.signin.form-horizontal ng-show="ui.showSignup" action="/users" method="post"
+        h6.col-md-offset-4.col-md-8 Signup with Email
+        .form-group
+          label.col-md-4.control-label for="name" Full Name
+          .col-md-8
+            input#name.form-control type="text" name="name" placeholder="Full Name" value="{{user.name}}"
+        .form-group
+          label.col-md-4.control-label for="email" Email
+          .col-md-8
+            input#email.form-control type="text" name="email" placeholder="Email" value="{{user.email}}"
+        .form-group
+          label.col-md-4.control-label for="username" Username
+          .col-md-8
+            input#username.form-control type="text" name="username" placeholder="Username" value="{{user.username}}"
+        .form-group
+          label.col-md-4.control-label for="password" Password
+          .col-md-8
+            input#password.form-control type="password" name="password" placeholder="Password"
+        .form-group
+          .col-md-offset-4.col-md-8
+            button.btn.btn-primary type="submit" 
+              | Sign up
