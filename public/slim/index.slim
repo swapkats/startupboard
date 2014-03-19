@@ -11,7 +11,7 @@ section.boards.container ng-controller="BoardController" ng-init="find()"
           br
           | {{article.created | date: 'medium'}}
 section.overlay.fixed-overlay.login-overlay ng-class="ui.showLoginOverlay && 'active' || 'inactive'"
-  .overlay-container
+  .overlay-container.container
     .col-md-6.social-login-btns
       h6 Login with
       a.facebook href="/auth/facebook" target="_self"
