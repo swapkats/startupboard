@@ -20,12 +20,32 @@ var ArticleSchema = new Schema({
         default: '',
         trim: true
     },
-    content: {
+    description: {
         type: String,
         default: '',
         trim: true
     },
-    city: {
+    startup: {
+        type: String,
+        default: '',
+        trim: true
+    },
+    location: {
+        type: String,
+        default: '',
+        trim: true
+    },
+    website: {
+        type: String,
+        default: '',
+        trim: true
+    },
+    applyInstructions: {
+        type: String,
+        default: '',
+        trim: true
+    },
+    tags: {
         type: String,
         default: '',
         trim: true
@@ -42,10 +62,6 @@ var ArticleSchema = new Schema({
 ArticleSchema.path('title').validate(function(title) {
     return title.length;
 }, 'Title cannot be blank');
-
-ArticleSchema.path('city').validate(function(city) {
-    return city.length;
-}, 'City cannot be blank');
 
 /**
  * Statics

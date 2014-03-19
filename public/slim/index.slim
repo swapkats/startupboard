@@ -3,11 +3,13 @@ section.boards.container ng-controller="BoardController" ng-init="find()"
     li.col-md-3.col-sm-6.col-xs-12 ng-repeat="article in articles"
       a ng-href="job/{{article._id}}"
         span.date 
-          | {{article.created | date:'medium'}}
+          | {{article.startup}}
         h3 
           | {{article.title}} 
         span.location 
-          | {{article.city}}
+          | {{article.location}} 
+          br
+          | {{article.created | date: 'medium'}}
 section.overlay.fixed-overlay.login-overlay ng-class="ui.showLoginOverlay && 'active' || 'inactive'"
   .overlay-container
     .col-md-6.social-login-btns
@@ -71,19 +73,35 @@ section.overlay.fixed-overlay.login-overlay ng-class="ui.showLoginOverlay && 'ac
 section.overlay.fixed-overlay.post-overlay ng-class="ui.showPostOverlay && 'active' || 'inactive'"
   .overlay-container
     form.form-horizontal.col-md-6.col-md-offset-3 ng-submit="create()" role="form" ng-controller="BoardController"
-      h6.col-md-offset-2.col-md-10 Post a new job
+      h6.col-md-offset-3.col-md-9 Post a new job
       .form-group
-        label.col-md-2.control-label for="title"  Title
-        .col-md-10
+        label.col-md-3.control-label for="startup"  Startup Name
+        .col-md-9
+          input#startup.form-control ng-model="startup" placeholder="startup" required="" type="text" 
+      .form-group
+        label.col-md-3.control-label for="website"  Website Url
+        .col-md-9
+          input#website.form-control ng-model="website" placeholder="website" required="" type="text" 
+      .form-group
+        label.col-md-3.control-label for="location" Location
+        .col-md-9
+          input#location.form-control ng-model="location" placeholder="location" required="" type="text"
+      .form-group
+        label.col-md-3.control-label for="title"  Job Title
+        .col-md-9
           input#title.form-control ng-model="title" placeholder="Title" required="" type="text" 
       .form-group
-        label.col-md-2.control-label for="content"  Content
-        .col-md-10
-          textarea#content.form-control cols="30" ng-model="content" placeholder="Content" required="" rows="10" 
+        label.col-md-3.control-label for="description"  Job Description
+        .col-md-9
+          textarea#description.form-control cols="30" ng-model="description" placeholder="Content" required="" rows="10" 
       .form-group
-        label.col-md-2.control-label for="city"  City
-        .col-md-10
-          input#city.form-control ng-model="city" placeholder="City" required="" rows="10" 
+        label.col-md-3.control-label for="applyInstructions"  How to apply
+        .col-md-9
+          input#applyInstructions.form-control ng-model="applyInstructions" placeholder="applyInstructions" required="" rows="10"
       .form-group
-        .col-md-offset-2.col-md-10
+        label.col-md-3.control-label for="tags"  Tags
+        .col-md-9
+          input#tags.form-control ng-model="tags" placeholder="tags" required="" rows="10" 
+      .form-group
+        .col-md-offset-3.col-md-9
           button.btn.btn-default type="submit"  Submit

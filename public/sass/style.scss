@@ -38,8 +38,8 @@ ul.boards {
 
       h3 {
         margin: 0;
-        padding: 20px 0;
-        height: 213px;
+        padding: 5px 0;
+        height: 195px;
       }
 
       span.date,
@@ -113,8 +113,15 @@ section.post-overlay,
   }
 }
 
-section.post-overlay h6 {
-  text-transform: uppercase;
+section.post-overlay { 
+  h6 {
+    text-transform: uppercase;
+  }
+
+  label {
+    text-transform: uppercase;
+    font-size: 13px;
+  }
 }
 
 .social-login-btns {

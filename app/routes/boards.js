@@ -17,6 +17,7 @@ module.exports = function(app) {
     app.get('/board', boards.all);
     app.post('/board', authorization.requiresLogin, boards.create);
     app.get('/board/:articleId', boards.show);
+    app.get('/board/:articleId', boards.show);
     app.put('/board/:articleId', authorization.requiresLogin, hasAuthorization, boards.update);
     app.del('/board/:articleId', authorization.requiresLogin, hasAuthorization, boards.destroy);
 

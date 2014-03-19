@@ -1,14 +1,20 @@
-section ng-controller="BoardController" ng-init="findOne()" 
-  span
-    | {{article.created | date:'medium'}}
-  span  
-    | {article.user.name} 
-  h2  
+section.container ng-controller="BoardController" ng-init="findOne()" 
+  h2.col-md-12  
     | {{article.title}} 
+  .col-md-12
+    | {{article.created | date:'medium'}}
+  .col-md-12
+    | {{article.tags | date:'medium'}}
   div ng-show="{{global.user._id == article.user._id}}"
-    a.btn ng-href="/#!/articles/{{article._id}}/edit" 
+    a.btn ng-href="/job/{{article._id}}/edit" 
       i.glyphicon.glyphicon-edit
     a.btn ng-click="remove();" 
       i.glyphicon.glyphicon-trash
-  div
-    | {{article.content}}
+  .col-md-12  
+    | {{article.startup}} 
+  a.col-md-12 ng-href="{{article.website}}"
+    | {{article.website}} 
+  p.col-md-12
+    | {{article.description}}
+  p.col-md-12
+    | {{article.applyInstructions}}

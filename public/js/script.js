@@ -49,7 +49,12 @@ angular.module('startupBoard').controller('BoardController', ['$scope', '$stateP
         var article = new Articles({
             title: this.title,
             content: this.content,
-            city: this.city
+            location: this.location,
+            startup: this.startup,
+            website: this.website,
+            description: this.description,
+            applyInstructions: this.applyInstructions,
+            tags: this.tags
         });
         article.$save(function(response) {
             $location.path('articles/' + response._id);
