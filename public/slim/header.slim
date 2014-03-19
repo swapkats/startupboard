@@ -6,7 +6,7 @@
         span.icon-bar
         span.icon-bar
         span.icon-bar
-      a.navbar-brand href="/"
+      a.navbar-brand href="/" target="_self"
         h1.logo 
           | Startup
           small Board
@@ -17,12 +17,12 @@
         li 
           a href="javascript:;" ng-click="ui.showLoginOverlay = !ui.showLoginOverlay" Login
       ul.nav.navbar-nav.navbar-right ng-show="global.authenticated"
-        li data-ng-repeat="item in menu" data-ng-show="global.user" ui-route="/{{item.link}}" ng-class="{active: $uiRoute}"
-          a href="#!/{{item.link}}" {{item.title}}
+        li ng-show="global.user"
+          a href="javascript:;" ng-click="ui.showPostOverlay = !ui.showPostOverlay" Post a job
         li.dropdown
           a.dropdown-toggle href="#" data-toggle="dropdown"
             | {{global.user.name}} 
             b.caret
           ul.dropdown-menu
             li
-              a href="/signout" Signout
+              a href="/signout" target="_self" Signout

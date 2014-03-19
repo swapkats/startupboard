@@ -13,15 +13,15 @@ angular.module('startupBoard').config(['$stateProvider', '$urlRouterProvider',
         templateUrl: 'views/boards/list.html'
     })
       .state('create article', {
-        url: '/board/new',
+        url: '/job/new',
         templateUrl: 'views/boards/create.html'
     })
       .state('edit article', {
-        url: '/board/:articleId/edit',
+        url: '/job/:articleId/edit',
         templateUrl: 'views/boards/edit.html'
     })
       .state('article by id', {
-        url: '/board/:articleId',
+        url: '/job/:articleId',
         templateUrl: 'views/boards/view.html'
     })
       .state('home', {
@@ -34,7 +34,7 @@ angular.module('startupBoard').config(['$stateProvider', '$urlRouterProvider',
 //Setting HTML5 Location Mode
 angular.module('startupBoard').config(['$locationProvider',
   function($locationProvider) {
-    //$locationProvider.html5Mode(true);
-    $locationProvider.hashPrefix('!');
+    $locationProvider.html5Mode(true);
+    //$locationProvider.hashPrefix('!');
 }
 ]);

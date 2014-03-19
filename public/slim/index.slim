@@ -1,7 +1,7 @@
 section.boards.container ng-controller="BoardController" ng-init="find()"
   ul.boards.row
     li.col-md-3.col-sm-6.col-xs-12 ng-repeat="article in articles"
-      a ng-href="#!/board/{{article._id}}"
+      a ng-href="job/{{article._id}}"
         span.date 
           | {{article.created | date:'medium'}}
         h3 
@@ -9,18 +9,18 @@ section.boards.container ng-controller="BoardController" ng-init="find()"
         span.location 
           | {{article.city}}
 section.overlay.fixed-overlay.login-overlay ng-class="ui.showLoginOverlay && 'active' || 'inactive'"
-  .overlay-container.container
+  .overlay-container
     .col-md-6.social-login-btns
       h6 Login with
-      a.facebook href="/auth/facebook"
+      a.facebook href="/auth/facebook" target="_self"
         i.fa.fa-facebook
-      a.twitter href="/auth/twitter"
+      a.twitter href="/auth/twitter" target="_self"
         i.fa.fa-twitter
       /a.github href="/auth/github"
         i.fa.fa-github
-      a.gplus href="/auth/google"
+      a.gplus href="/auth/google" target="_self"
         i.fa.fa-google-plus
-      a.linkedin href="/auth/linkedin"
+      a.linkedin href="/auth/linkedin" target="_self"
         i.fa.fa-linkedin
     .col-md-6
       .fade.in.alert.alert-error ng-if="global.loginMessage"
@@ -68,3 +68,22 @@ section.overlay.fixed-overlay.login-overlay ng-class="ui.showLoginOverlay && 'ac
           .col-md-offset-4.col-md-8
             button.btn.btn-primary type="submit" 
               | Sign up
+section.overlay.fixed-overlay.post-overlay ng-class="ui.showPostOverlay && 'active' || 'inactive'"
+  .overlay-container
+    form.form-horizontal.col-md-6.col-md-offset-3 ng-submit="create()" role="form" ng-controller="BoardController"
+      h6.col-md-offset-2.col-md-10 Post a new job
+      .form-group
+        label.col-md-2.control-label for="title"  Title
+        .col-md-10
+          input#title.form-control ng-model="title" placeholder="Title" required="" type="text" 
+      .form-group
+        label.col-md-2.control-label for="content"  Content
+        .col-md-10
+          textarea#content.form-control cols="30" ng-model="content" placeholder="Content" required="" rows="10" 
+      .form-group
+        label.col-md-2.control-label for="city"  City
+        .col-md-10
+          input#city.form-control ng-model="city" placeholder="City" required="" rows="10" 
+      .form-group
+        .col-md-offset-2.col-md-10
+          button.btn.btn-default type="submit"  Submit

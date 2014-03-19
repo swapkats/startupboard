@@ -92,11 +92,12 @@ section.fixed-overlay {
 }
 
 section.login-overlay,
+section.post-overlay,
 .social-login-btns,
 .signin {
 
   .overlay-container {
-    padding-top: 50px;
+    padding-top: 30px;
     height: 100%;
     overflow: auto;
   }
@@ -104,11 +105,16 @@ section.login-overlay,
   h6 { 
     font-size: $h2; 
     margin-bottom: 20px;
+    padding-left: 0;
   }
 
   .alert {
     margin-bottom: 0;
   }
+}
+
+section.post-overlay h6 {
+  text-transform: uppercase;
 }
 
 .social-login-btns {
